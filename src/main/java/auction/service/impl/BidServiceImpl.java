@@ -22,8 +22,8 @@ public class BidServiceImpl implements BidService {
     private final BidRepository bidRepository;
     private final ConversionService conversionService;
 
+    @Override
     public BidDTO createBid(BidDTO bidDTO) {
-
         AuctionItem auctionItem = auctionItemService.findOne(bidDTO.getAuctionItemId());
         if (auctionItem.isSold()) {
             throw new BadRequestException("Item is sold!");
@@ -50,10 +50,12 @@ public class BidServiceImpl implements BidService {
         return bidDTO;
     }
 
+    @Override
     public Bid save(Bid bid) {
         return bidRepository.save(bid);
     }
 
+    @Override
     public List<Bid> findAll() {
         return bidRepository.findAll();
     }

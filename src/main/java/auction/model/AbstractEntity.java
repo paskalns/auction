@@ -1,5 +1,6 @@
 package auction.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import javax.persistence.MappedSuperclass;
 @Getter
 @Setter
 @MappedSuperclass
+@EqualsAndHashCode
 public abstract class AbstractEntity {
 
     @Id
