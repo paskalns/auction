@@ -2,9 +2,11 @@ package auction.model;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -27,7 +29,7 @@ public class AuctionItem extends AbstractEntity {
 
     private boolean sold;
 
-    @OneToMany(mappedBy = "auctionItem", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "auctionItem")
     private Set<Bid> bids = new HashSet<>();
 
 }

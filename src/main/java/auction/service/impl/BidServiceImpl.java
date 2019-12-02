@@ -11,11 +11,13 @@ import auction.service.BidService;
 import lombok.AllArgsConstructor;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class BidServiceImpl implements BidService {
 
     private final AuctionItemService auctionItemService;
