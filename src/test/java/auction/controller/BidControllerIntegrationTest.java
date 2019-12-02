@@ -1,26 +1,16 @@
 package auction.controller;
 
+import auction.AbstractClassIntegrationTests;
 import auction.dto.AuctionItemDTO;
 
 import auction.dto.BidDTO;
-import auction.service.BidService;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class BidControllerIntegrationTest {
-
-    private TestRestTemplate restTemplate;
-    private BidService bidService;
+public class BidControllerIntegrationTest extends AbstractClassIntegrationTests {
 
     @Test
     public void createBid() {
@@ -37,14 +27,5 @@ public class BidControllerIntegrationTest {
         assertEquals(sizeBefore + 1, bidService.findAll().size());
     }
 
-    @Autowired
-    public void setBidService(BidService bidService) {
-        this.bidService = bidService;
-    }
-
-    @Autowired
-    public void setRestTemplate(TestRestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
-
 }
+

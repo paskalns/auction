@@ -1,22 +1,17 @@
 package auction.service;
 
+import auction.AbstractClassIntegrationTests;
 import auction.dto.AuctionItemDTO;
 import auction.dto.BidDTO;
 import auction.model.AuctionItem;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AuctionItemServiceIntegrationTest {
+public class AuctionItemServiceIntegrationTest extends AbstractClassIntegrationTests {
 
     private AuctionItemService auctionItemService;
-    private BidService bidService;
 
     @Test
     public void testSave() {
@@ -44,11 +39,6 @@ public class AuctionItemServiceIntegrationTest {
     @Autowired
     public void setAuctionItemService(AuctionItemService auctionItemService) {
         this.auctionItemService = auctionItemService;
-    }
-
-    @Autowired
-    public void setBidService(BidService bidService) {
-        this.bidService = bidService;
     }
 
 }
