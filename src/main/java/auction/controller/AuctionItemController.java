@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class AuctionItemController {
     }
 
     @PostMapping
-    public ResponseEntity<AuctionItemDTO> create(@RequestBody AuctionItemDTO auctionItemDTO) {
+    public ResponseEntity<AuctionItemDTO> create(@RequestBody @Valid AuctionItemDTO auctionItemDTO) {
         return ResponseEntity.ok(auctionItemService.save(auctionItemDTO));
     }
 

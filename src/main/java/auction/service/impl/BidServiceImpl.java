@@ -13,6 +13,8 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -31,16 +33,16 @@ public class BidServiceImpl implements BidService {
             throw new BadRequestException("Item is sold!");
         }
 
-        int currentPrice = auctionItem.getBids().stream()
-                .mapToInt(Bid::getPrice)
-                .max()
+        BigDecimal currentPrice = auctionItem.getBids().stream()
+                .map(Bid::getPrice)
+                .max(Comparator.naturalOrder())
                 .orElse(auctionItem.getMinBidPrice());
 
-        if (currentPrice >= bidDTO.getPrice()) {
+        if (currentPrice.compareTo(bidDTO.getPrice()) >= 0) {
             throw new BadRequestException("Bid is to low.");
         }
 
-        if (bidDTO.getPrice() >= auctionItem.getMinBuyoutPrice()) {
+        if (bidDTO.getPrice().compareTo(auctionItem.getMinBuyoutPrice()) >= 0) {
             auctionItem.setSold(true);
             auctionItemService.save(conversionService.convert(auctionItem, AuctionItemDTO.class));
         }

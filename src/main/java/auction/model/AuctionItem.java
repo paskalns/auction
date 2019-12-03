@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,10 +23,10 @@ public class AuctionItem extends AbstractEntity {
     private String name;
 
     @Column(nullable = false)
-    private int minBidPrice;
+    private BigDecimal minBidPrice;
 
     @Column(nullable = false)
-    private int minBuyoutPrice;
+    private BigDecimal minBuyoutPrice;
 
     private boolean sold;
 

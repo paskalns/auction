@@ -3,6 +3,7 @@ package auction.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table
@@ -14,7 +15,7 @@ import javax.persistence.*;
 public class Bid extends AbstractEntity {
 
     @Column(nullable = false)
-    private int price;
+    private BigDecimal price;
 
     @Column(nullable = false)
     private String firstName;

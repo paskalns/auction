@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/bids")
 @AllArgsConstructor
@@ -17,7 +19,7 @@ public class BidController {
     private final BidService bidService;
 
     @PostMapping
-    public ResponseEntity<BidDTO> createBid(@RequestBody BidDTO bidDTO) {
+    public ResponseEntity<BidDTO> createBid(@RequestBody @Valid BidDTO bidDTO) {
         return ResponseEntity.ok(bidService.createBid(bidDTO));
     }
 }
