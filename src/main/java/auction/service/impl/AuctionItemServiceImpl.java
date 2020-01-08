@@ -52,4 +52,11 @@ public class AuctionItemServiceImpl implements AuctionItemService {
         return auctionItemRepository.findByName(name);
     }
 
+    @Override
+    public void delete(Long id) {
+        AuctionItem auctionItem = auctionItemRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(String.format("AuctionItem with id %s not found", id)));
+        auctionItemRepository.delete(auctionItem);
+    }
+
 }

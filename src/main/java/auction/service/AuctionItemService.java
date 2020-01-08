@@ -17,4 +17,6 @@ public interface AuctionItemService {
 
     AuctionItem getAuctionItemByName(String name);
 
+    void delete(Long id);
+
 }

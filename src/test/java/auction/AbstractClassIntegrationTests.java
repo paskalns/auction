@@ -1,5 +1,6 @@
 package auction;
 
+import auction.service.AuctionItemService;
 import auction.service.BidService;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public abstract class AbstractClassIntegrationTests {
 
     protected BidService bidService;
+    protected AuctionItemService auctionItemService;
     protected TestRestTemplate restTemplate;
 
     @Autowired
@@ -22,6 +24,11 @@ public abstract class AbstractClassIntegrationTests {
     @Autowired
     public void setRestTemplate(TestRestTemplate restTemplate) {
         this.restTemplate = restTemplate;
+    }
+
+    @Autowired
+    public void setAuctionItemService(AuctionItemService auctionItemService) {
+        this.auctionItemService = auctionItemService;
     }
 
 }
