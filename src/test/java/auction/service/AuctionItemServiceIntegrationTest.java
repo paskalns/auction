@@ -1,6 +1,6 @@
 package auction.service;
 
-import auction.AbstractClassIntegrationTests;
+import auction.AbstractIntegrationTests;
 import auction.dto.AuctionItemDTO;
 import auction.dto.BidDTO;
 import auction.model.AuctionItem;
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AuctionItemServiceIntegrationTest extends AbstractClassIntegrationTests {
+public class AuctionItemServiceIntegrationTest extends AbstractIntegrationTests {
 
     @Test
     public void testSave() {

@@ -1,6 +1,6 @@
 package auction.controller;
 
-import auction.AbstractClassIntegrationTests;
+import auction.AbstractIntegrationTests;
 import auction.dto.AuctionItemDTO;
 
 import auction.dto.BidDTO;
@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BidControllerIntegrationTest extends AbstractClassIntegrationTests {
+public class BidControllerIntegrationTest extends AbstractIntegrationTests {
 
     @Test
     public void createBid() {
