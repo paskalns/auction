@@ -26,7 +26,7 @@ public class Bid extends AbstractEntity {
     @Column(nullable = false)
     private int jmbg;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private AuctionItem auctionItem;
 
 }
